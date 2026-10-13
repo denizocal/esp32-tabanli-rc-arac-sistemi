@@ -1,106 +1,104 @@
-# ESP32 Tabanlı Uzaktan Kontrollü RC Araç Sistemi
+# ESP32-Based Remote-Controlled RC Vehicle
 
-Bu proje, uzaktan kontrol edilebilen kompakt bir RC araç için özel elektronik kartların tasarlanması, güç dağıtım altyapısının oluşturulması, motor sürme yapısının kurgulanması ve kablosuz kontrol sisteminin entegre edilmesi amacıyla geliştirilmiştir.
+This project explores the design of custom electronics for a compact, remotely controlled RC vehicle. It brings together power distribution, motor control, and wireless control in a dedicated hardware platform.
 
-Projede, hazır geliştirme kartları yerine mümkün olduğunca sisteme özel PCB tasarımları oluşturularak hem elektronik donanım geliştirme süreci hem de gömülü sistem entegrasyonu uygulamalı olarak ele alınmıştır.
+Where practical, custom PCBs are used instead of off-the-shelf development boards, providing hands-on experience with electronics development and embedded-system integration.
 
-## Proje Özeti
+## Project Overview
 
-Bu çalışmada, küçük ölçekli bir uzaktan kontrollü aracın çalışması için gerekli olan temel elektronik altyapı özel olarak tasarlanmıştır. Sistem; mikrodenetleyici tabanlı kontrol, motor sürme, güç yönetimi, haberleşme ve bağlantı katmanlarını içeren modüler bir donanım mimarisi üzerine kurulmuştur.
+The vehicle's electronic platform is built around modular blocks for microcontroller control, motor driving, power management, communication, and external connections.
 
-Amaç yalnızca hareket eden bir araç oluşturmak değil, aynı zamanda gerçek bir mühendislik projesi yaklaşımıyla; üretilebilir, düzenli ve işlevsel bir elektronik sistem geliştirmektir.
+The goal is to create more than a moving vehicle: the project follows a practical engineering approach to building hardware that is functional, organized, and suitable for manufacturing.
 
-## Projenin Amacı
+## Project Goals
 
-Bu projenin temel amacı aşağıdaki alanlarda uygulamalı deneyim kazanmaktır:
+- Develop an ESP32-based embedded system
+- Design custom PCBs
+- Integrate a motor-driver circuit
+- Plan power distribution for a battery-powered system
+- Build wireless vehicle-control capability
+- Combine hardware blocks into one integrated system
 
-- ESP32 tabanlı gömülü sistem geliştirme
-- Özel PCB tasarımı oluşturma
-- Motor sürücü devresi entegrasyonu
-- Batarya ile çalışan sistemlerde güç dağıtımı tasarlama
-- Kablosuz haberleşme tabanlı araç kontrolü geliştirme
-- Gerçek bir ürün mantığıyla donanım bloklarını tek sistemde birleştirme
+## System Architecture
 
-## Sistem Mimarisi
+The RC vehicle consists of the following main hardware blocks:
 
-RC araç sistemi aşağıdaki temel donanım bloklarından oluşmaktadır:
+### Microcontroller
 
-### Mikrodenetleyici Katı
-Araç kontrolü için ESP32 tabanlı bir yapı kullanılmıştır. Bu yapı; kablosuz haberleşme, kontrol sinyalleri üretimi ve çevresel birimlerle veri alışverişi için ana denetleyici görevini üstlenmektedir.
+An ESP32-based controller handles wireless communication, generates control signals, and exchanges data with peripheral devices.
 
-### Motor Sürücü Katı
-Araç hareketinin sağlanabilmesi için DC motorların ileri-geri kontrolü ve gerekli yönlendirme sinyalleri motor sürücü altyapısı üzerinden gerçekleştirilmiştir.
+### Motor Driver
 
-### Güç Katı
-Sistemin batarya ile çalışmasına uygun olarak güç girişleri, regülasyon yapıları, filtreleme elemanları ve güç dağıtım bağlantıları tasarlanmıştır. Böylece hem kontrol katı hem de sürücü katı için uygun besleme altyapısı oluşturulmuştur.
+A motor-driver stage controls the DC motors in forward and reverse directions and provides the signals needed to steer the vehicle.
 
-### Bağlantı ve Arabirim Katı
-Motorlar, güç hattı, kontrol sinyalleri ve yardımcı bağlantılar için kart üzerinde uygun konnektör ve pin yapıları planlanmıştır. Bu yaklaşım montaj, test ve bakım süreçlerini kolaylaştırmayı hedeflemektedir.
+### Power
 
-## Kart Tasarım Yaklaşımı
+The board is designed for battery operation, with power inputs, regulation, filtering, and distribution connections planned to provide suitable supplies for both the control and driver stages.
 
-Bu proje kapsamında elektronik kartlar yalnızca çalışacak şekilde değil, aynı zamanda düzenli ve üretilebilir olacak şekilde tasarlanmıştır. Tasarım sürecinde aşağıdaki başlıklara dikkat edilmiştir:
+### Connections and Interfaces
 
-- Şematik ve PCB tasarımının birbiriyle tutarlı ilerletilmesi
-- Güç ve sinyal hatlarının işlevlerine göre ayrılması
-- Motor akım yollarının kontrol sinyallerinden ayrıştırılması
-- Bileşen yerleşiminde kısa ve mantıklı bağlantılar oluşturulması
-- Regülatör, sürücü ve mikrodenetleyici etrafında uygun yerleşim planı yapılması
-- Konnektörlerin montaj ve erişim açısından uygun konumlandırılması
-- Kartın kompakt yapıda ancak servis edilebilir olacak şekilde planlanması
+Connectors and pin assignments are planned for the motors, power rails, control signals, and auxiliary connections. This approach is intended to make assembly, testing, and maintenance easier.
 
-## Gerçekleştirilen Çalışmalar
+## PCB Design Approach
 
-- RC araç için ihtiyaç duyulan donanım blokları belirlendi
-- ESP32 tabanlı kontrol yapısı oluşturuldu
-- Motor sürücü entegrasyonu planlandı
-- Güç girişi ve regülasyon yapısı tasarlandı
-- Özel PCB kart yerleşimi hazırlandı
-- Konnektör ve arabirim yerleşimi yapıldı
-- Sistem bağlantıları, kontrol mantığı ve montaj yapısı birlikte değerlendirildi
+The boards are planned to be both functional and orderly, with manufacturing and serviceability in mind. The design process focuses on:
 
-## Kullanılan Teknolojiler ve Bileşenler
+- Keeping the schematic and PCB layout consistent
+- Separating power and signal paths by function
+- Keeping motor-current paths apart from control signals
+- Using short, practical connections in component placement
+- Planning suitable layouts around the regulator, driver, and microcontroller
+- Positioning connectors for convenient assembly and access
+- Keeping the board compact while allowing service access
+
+## Work Completed
+
+- Identified the hardware blocks required for the RC vehicle
+- Planned the ESP32-based control system
+- Planned motor-driver integration
+- Designed the power input and regulation approach
+- Created a custom PCB layout
+- Arranged connectors and interfaces
+- Considered system wiring, control logic, and assembly together
+
+## Technologies and Components
 
 - ESP32
-- DC motor sürücü yapısı
-- Li-Po batarya altyapısı
-- Gerilim regülasyon devreleri
-- PCB tasarım yazılımı
-- Şematik ve PCB yerleşim araçları
+- DC motor-driver stage
+- Li-Po battery system
+- Voltage-regulation circuits
+- PCB design software
+- Schematic and PCB layout tools
 
-## Teknik Kazanımlar
+## Skills Applied
 
-Bu proje kapsamında aşağıdaki alanlarda uygulamalı deneyim kazanılmıştır:
+- Embedded hardware architecture
+- PCB design and layout planning
+- Power-management design
+- Motor-driver integration
+- Wireless-control system design
+- System-level electronics integration
 
-- Gömülü donanım mimarisi oluşturma
-- PCB tasarımı ve yerleşim planlama
-- Güç yönetimi tasarımı
-- Motor sürme altyapısı kurma
-- Kablosuz kontrollü sistem tasarlama
-- Sistem seviyesinde elektronik entegrasyon
+## Project Photos
 
-## Proje Görselleri
+![Schematic view](images/sematik.png)
 
-![Şematik Görünüm](images/sematik.png)
+![PCB top view](images/pcb-ust.png)
 
-![PCB Üst Görünüş](images/pcb-ust.png)
+![3D PCB view](images/pcb-3d.png)
 
-![3D PCB Görünüşü](images/pcb-3d.png)
+![Prototype system](images/prototip.png)
 
-![Prototip Sistem](images/prototip.png)
+## Possible Extensions
 
-## Geliştirme Potansiyeli
+- Design a more compact multilayer PCB
+- Add current measurement and battery monitoring
+- Implement more advanced motor-control algorithms
+- Integrate sensors
+- Add a camera or video-transmission module
+- Develop a mobile application interface
+- Strengthen EMI and ESD protection
 
-Bu proje aşağıdaki yönlerden geliştirilebilir:
+## Summary
 
-- Daha kompakt çok katmanlı PCB tasarımı
-- Akım ölçümü ve batarya izleme yapısının eklenmesi
-- Daha gelişmiş motor kontrol algoritmaları
-- Sensör entegrasyonu
-- Kamera veya görüntü aktarım modülü eklenmesi
-- Mobil uygulama arayüzünün geliştirilmesi
-- EMI/ESD koruma yapılarının güçlendirilmesi
-
-## Sonuç
-
-Bu proje, uzaktan kontrollü bir aracın elektronik altyapısını özel kart tasarımı yaklaşımıyla ele alan kapsamlı bir uygulama çalışmasıdır. Mikrodenetleyici kontrolü, motor sürme, güç dağıtımı ve kart tasarımı gibi farklı mühendislik başlıklarını tek bir sistem altında birleştirmesi açısından güçlü bir donanım geliştirme projesidir.
+This project develops the electronics for a remote-controlled vehicle using a custom-board design approach. It brings together microcontroller control, motor driving, power distribution, and PCB design in one practical hardware project.
